@@ -1,0 +1,25 @@
+name: Continuous Integration
+
+# This will help to trigger CI on GitHub
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2 # fetch data
+        with:
+          fetch-depth: 0 # fetch all history for all branches and tags
+      - name: Use Node.js # setup environment -> which is node in this case
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20.17.0" # The Node version I used to run this project on my device
+
+      - name: Install dependencies # when we have node, we install dependencies using npm
+        run: npm install
+
+      # Another setup can add later according to the need of the project
