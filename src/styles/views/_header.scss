@@ -4,6 +4,7 @@ body {
 
 .header {
   background-color: white;
+  width: 100%;
 
   &-bar {
     background-color: darken($color: blue, $amount: 10);
